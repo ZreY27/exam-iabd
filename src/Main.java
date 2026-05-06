@@ -58,4 +58,23 @@ void main() {
     System.out.println("=== bestTrip ===");
     partie3.bestTrip(trips).ifPresent(t -> System.out.println("ID: " + t.id() + " | Note: " + t.rating()));
     System.out.println();
+
+    // Test Partie 4
+    Partie4 partie4 = new Partie4();
+    System.out.println("=== TEST PARTIE 4 ===");
+    
+    System.out.println("=== totalRevenueSequential ===");
+    System.out.printf("Revenu total (séquentiel) : %.2f €%n", partie4.totalRevenueSequential(trips));
+    System.out.println();
+
+    System.out.println("=== totalRevenueParallel ===");
+    System.out.printf("Revenu total (parallèle) : %.2f €%n", partie4.totalRevenueParallel(trips));
+    System.out.println();
+
+    System.out.println("=== countByCityParallel ===");
+    partie4.countByCityParallel(trips).forEach((city, count) -> System.out.println("Ville: " + city + " | Nombre de trajets: " + count));
+    System.out.println();
+
+    System.out.println("=== premiumTripsParallel ===");
+    partie4.premiumTripsParallel(trips).forEach(t -> System.out.println("ID: " + t.id() + " | Prix: " + t.price() + " € | Note: " + t.rating()));
 }
