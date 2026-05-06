@@ -1,4 +1,5 @@
 import exo.Partie1;
+import exo.Partie2;
 import factory.TripFactory;
 import models.Trip;
 
@@ -27,4 +28,21 @@ void main() {
 
     System.out.println("=== recentTrips ===");
     partie1.recentTrips(trips).forEach(t -> System.out.println("ID: " + t.id() + " | Date: " + t.startTime()));
+    System.out.println();
+
+    // Test Partie 2
+    Partie2 partie2 = new Partie2();
+
+    System.out.println("=== TEST PARTIE 2 ===");
+    
+    System.out.println("=== countByCity ===");
+    partie2.countByCity(trips).forEach((city, count) -> System.out.println("Ville: " + city + " | Nombre de trajets: " + count));
+    System.out.println();
+
+    System.out.println("=== revenueByDriver ===");
+    partie2.revenueByDriver(trips).forEach((driver, revenue) -> System.out.printf("Chauffeur: %s | Revenu total: %.2f €%n", driver, revenue));
+    System.out.println();
+
+    System.out.println("=== avgDurationByCity ===");
+    partie2.avgDurationByCity(trips).forEach((city, avgDuration) -> System.out.printf("Ville: %s | Durée moyenne: %.2f min%n", city, avgDuration));
 }
